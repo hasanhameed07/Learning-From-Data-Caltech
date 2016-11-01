@@ -11,6 +11,7 @@ def partiald1(u, v):
     return 2*(m.exp(v) + 2*v*m.exp(-1*u))*(u*m.exp(v) - 2*v*m.exp(-1*u))
     
 # partial derivative of E with respect to v
+# solution of Problem 4
 def partiald2(u, v):
     return 2*(u*m.exp(v) - 2*v*m.exp(-1*u))*(u*m.exp(v) - 2*m.exp(-1*u))
     
