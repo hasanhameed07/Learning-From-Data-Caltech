@@ -58,6 +58,16 @@ def LinearRegression(X, Y):
     return np.array(w)
 
 
+# Linear Regression
+def LinearRegressionRegularized(X, Y, lambdafactor):
+    
+    X_m = np.matrix(X)
+    Y_m = np.matrix(Y).transpose()
+    Xdagger = (X_m.transpose()*X_m + lambdafactor*np.identity(X_m.shape[1])).getI()*X_m.transpose()
+    w = Xdagger*Y_m
+    return np.array(w)
+
+
     
 def calcGradient(x, y, w):
     x_m = np.matrix(x).transpose()

@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import algos
 
-def experiment():
+def experiment(lambdafactor):
     # Gen sample data
 
     def transform(x1, x2):        
@@ -25,7 +25,7 @@ def experiment():
     Y = data[:, 2] 
     
 
-    w = algos.LinearRegression(X, Y)
+    w = algos.LinearRegressionRegularized(X, Y, 10**lambdafactor)
     
     
     # GRAPH
@@ -86,12 +86,12 @@ def experiment():
         sumError += int((g != Y_test[i]))
         i += 1
     Eout = sumError/float(i)
-    return [Ein , Eout]
-    
+    print [lambdafactor, Ein , Eout]
+    return 1
 
 N = 1
-for _ in range(N):
-    avg = experiment()
+for _ in np.linspace(-10, 10, 21):
+    avg = experiment(_)
 
 print avg
     
